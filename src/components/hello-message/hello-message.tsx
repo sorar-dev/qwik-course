@@ -1,13 +1,17 @@
 import {component$} from "@builder.io/qwik";
 
-export const HelloMessage = component$(() => {
-    const message = ' Welcome to this Qwik Course!'
-    const version = 4;
+interface HelloMessageProps {
+    message: string;
+    courseVersion: number;
+}
+
+export const HelloMessage = component$<HelloMessageProps>((props: HelloMessageProps) => {
+    const {message, courseVersion} = props;
     return (
         <div class='container'>
             <>{
                 <h1>
-                    {message}: version - {version}
+                    {message}: version - {courseVersion}
                 </h1>}   </>
         </div>
     )
